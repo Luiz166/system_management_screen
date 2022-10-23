@@ -139,6 +139,7 @@
             this.button2.Text = "Atualizar";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button4
             // 
@@ -171,10 +172,12 @@
             // lstCity
             // 
             this.lstCity.Location = new System.Drawing.Point(12, 236);
+            this.lstCity.MultiSelect = false;
             this.lstCity.Name = "lstCity";
             this.lstCity.Size = new System.Drawing.Size(776, 202);
             this.lstCity.TabIndex = 13;
             this.lstCity.UseCompatibleStateImageBehavior = false;
+            this.lstCity.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lstCity_ItemSelectionChanged);
             // 
             // button6
             // 
@@ -205,8 +208,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "CadastroCidade";
-            this.Text = "Form2";
+            this.Text = "Cadastro de Cidade";
             this.ResumeLayout(false);
             this.PerformLayout();
 
