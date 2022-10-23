@@ -20,6 +20,7 @@ namespace WinFormsApp1
         
 
         string data_source = "datasource=localhost; username=root; password =; database = cadastro_cidade";
+        private int ?id_city_selected = null;
 
         public CadastroCidade()
         {
@@ -51,16 +52,21 @@ namespace WinFormsApp1
                 
                 cmd.Connection = Conexao;
 
-                cmd.CommandText = "INSERT INTO cidade (id, nome, uf)" + "VALUES "+ "(@id, @nome, @uf) ";
-                
-                cmd.Parameters.AddWithValue("@id", txtID.Text);
-                cmd.Parameters.AddWithValue("@nome", txtCity.Text);
-                cmd.Parameters.AddWithValue("@uf", txtUF.Text);
+                id_city_selected = null;
 
-                cmd.ExecuteNonQuery();
+                if(id_city_selected == null)
+                {
+                    cmd.CommandText = "INSERT INTO cidade (id, nome, uf)" + "VALUES " + "(@id, @nome, @uf) ";
 
-                //Executar comando insert
-                MessageBox.Show("Informações inseridas!");
+                    cmd.Parameters.AddWithValue("@id", txtID.Text);
+                    cmd.Parameters.AddWithValue("@nome", txtCity.Text);
+                    cmd.Parameters.AddWithValue("@uf", txtUF.Text);
+
+                    cmd.ExecuteNonQuery();
+
+                    //Executar comando insert
+                    MessageBox.Show("Informações inseridas!");
+                }
 
                 txtID.Text = "";
                 txtCity.Text = "";
@@ -86,6 +92,46 @@ namespace WinFormsApp1
 
         private void button4_Click(object sender, EventArgs e)
         {
+            try
+            {
+                //Criar conexao mysql
+                Conexao = new MySqlConnection(data_source);
+
+                Conexao.Open();
+
+                MySqlCommand cmd = new MySqlCommand();
+
+                cmd.Connection = Conexao;
+                if (id_city_selected != null)
+                {
+                    cmd.CommandText = "DELETE FROM cidade " + "WHERE nome=@nome";
+
+                    cmd.Parameters.AddWithValue("@id", id_city_selected);
+                    cmd.Parameters.AddWithValue("@nome", txtCity.Text);
+                    cmd.Parameters.AddWithValue("@uf", txtUF.Text);
+
+                    cmd.ExecuteNonQuery();
+
+                    //Executar comando insert
+                    MessageBox.Show("Informações deletadas!");
+
+                }
+
+                txtID.Text = "";
+                txtCity.Text = "";
+                txtUF.Text = "";
+
+                load_cities();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Conexao.Close();
+            }
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -179,7 +225,46 @@ namespace WinFormsApp1
 
         private void button2_Click(object sender, EventArgs e)
         {
+            try
+            {
+                //Criar conexao mysql
+                Conexao = new MySqlConnection(data_source);
 
+                Conexao.Open();
+
+                MySqlCommand cmd = new MySqlCommand();
+
+                cmd.Connection = Conexao;
+                if(id_city_selected != null)
+                {
+                    cmd.CommandText = "UPDATE cidade SET id=@id, nome=@nome, uf=@uf " + "WHERE id=@id";
+
+                    cmd.Parameters.AddWithValue("@id", id_city_selected);
+                    cmd.Parameters.AddWithValue("@nome", txtCity.Text);
+                    cmd.Parameters.AddWithValue("@uf", txtUF.Text);
+
+                    cmd.ExecuteNonQuery();
+
+                    //Executar comando insert
+                    MessageBox.Show("Informações atualizadas!");
+
+                }
+
+                txtID.Text = "";
+                txtCity.Text = "";
+                txtUF.Text = "";
+
+                load_cities();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Conexao.Close();
+            }
         }
 
         private void lstCity_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
@@ -188,9 +273,54 @@ namespace WinFormsApp1
 
             foreach(ListViewItem item in selected_items)
             {
+                id_city_selected = Convert.ToInt32(item.SubItems[0].Text);
                 txtID.Text = item.SubItems[0].Text;
                 txtCity.Text = item.SubItems[1].Text;
                 txtUF.Text = item.SubItems[2].Text;
+            }
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Criar conexao mysql
+                Conexao = new MySqlConnection(data_source);
+
+                Conexao.Open();
+
+                MySqlCommand cmd = new MySqlCommand();
+
+                cmd.Connection = Conexao;
+                if (id_city_selected != null)
+                {
+                    cmd.CommandText = "DELETE FROM cidade " + "WHERE nome=@nome";
+
+                    cmd.Parameters.AddWithValue("@id", id_city_selected);
+                    cmd.Parameters.AddWithValue("@nome", txtCity.Text);
+                    cmd.Parameters.AddWithValue("@uf", txtUF.Text);
+
+                    cmd.ExecuteNonQuery();
+
+                    //Executar comando insert
+                    MessageBox.Show("Excluindo...");
+
+                }
+
+                txtID.Text = "";
+                txtCity.Text = "";
+                txtUF.Text = "";
+
+                load_cities();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Conexao.Close();
             }
         }
     }
