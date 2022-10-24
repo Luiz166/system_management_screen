@@ -45,7 +45,7 @@ namespace WinFormsApp1
                 {
                     this.Hide();
 
-                    CadastroCidade ss = new CadastroCidade();
+                    telaSelecao ss = new telaSelecao();
                     ss.Show();
                 }
                 else
