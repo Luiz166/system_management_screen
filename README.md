@@ -1,2 +1,6 @@
 <h1 align="center">Tela de gestão de sistema</h1>
-(http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
+
+<div>
+<img src="https://img.shields.io/github/issues/Luiz166/system_management_screen"/>
+<img src= "https://img.shields.io/github/license/Luiz166/system_management_screen"/>
+</div>
