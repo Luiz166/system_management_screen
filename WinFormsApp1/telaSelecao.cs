@@ -19,16 +19,19 @@ namespace WinFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
-            CadastroCidade ss = new CadastroCidade();
-            ss.Show();
+            this.Hide();
+            Application.Run(new CadastroCidade());
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Close();
-            cadastroUsuario ss = new cadastroUsuario();
-            ss.Show();
+            this.Hide();
+            Application.Run(new cadastroUsuario());
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

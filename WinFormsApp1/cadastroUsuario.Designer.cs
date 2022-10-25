@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(cadastroUsuario));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,7 +47,10 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.Excluir = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -95,7 +99,6 @@
             // 
             this.txtID.Location = new System.Drawing.Point(98, 48);
             this.txtID.Name = "txtID";
-            this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(224, 23);
             this.txtID.TabIndex = 4;
             // 
@@ -132,6 +135,7 @@
             this.lstUser.Size = new System.Drawing.Size(553, 199);
             this.lstUser.TabIndex = 3;
             this.lstUser.UseCompatibleStateImageBehavior = false;
+            this.lstUser.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lstUser_ItemSelectionChanged);
             // 
             // button1
             // 
@@ -200,6 +204,7 @@
             this.button4.Text = "Excluir";
             this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -213,6 +218,7 @@
             this.button5.Text = "Fechar";
             this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -226,6 +232,20 @@
             this.button6.Text = "Voltar";
             this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Excluir});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 26);
+            // 
+            // Excluir
+            // 
+            this.Excluir.Name = "Excluir";
+            this.Excluir.Size = new System.Drawing.Size(180, 22);
+            this.Excluir.Text = "toolStripMenuItem1";
             // 
             // cadastroUsuario
             // 
@@ -251,6 +271,7 @@
             this.Text = "cadastroUsuario";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,5 +296,7 @@
         private Button button4;
         private Button button5;
         private Button button6;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem Excluir;
     }
 }

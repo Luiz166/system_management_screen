@@ -87,7 +87,7 @@ namespace WinFormsApp1
 
         private void button5_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -322,6 +322,12 @@ namespace WinFormsApp1
             {
                 Conexao.Close();
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Application.Run(new telaSelecao());
         }
     }
 }

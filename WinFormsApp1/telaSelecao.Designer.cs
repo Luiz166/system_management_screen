@@ -123,6 +123,7 @@
             this.button6.Size = new System.Drawing.Size(75, 51);
             this.button6.TabIndex = 6;
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // telaSelecao
             // 
@@ -136,6 +137,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "telaSelecao";
             this.Text = "telaSelecao";
             this.ResumeLayout(false);

@@ -46,6 +46,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.button6 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -179,7 +180,7 @@
             this.lstCity.Location = new System.Drawing.Point(12, 236);
             this.lstCity.MultiSelect = false;
             this.lstCity.Name = "lstCity";
-            this.lstCity.Size = new System.Drawing.Size(776, 202);
+            this.lstCity.Size = new System.Drawing.Size(591, 202);
             this.lstCity.TabIndex = 13;
             this.lstCity.UseCompatibleStateImageBehavior = false;
             this.lstCity.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lstCity_ItemSelectionChanged);
@@ -208,11 +209,26 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(688, 208);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(100, 34);
+            this.button3.TabIndex = 15;
+            this.button3.Text = "Voltar";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // CadastroCidade
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.lstCity);
             this.Controls.Add(this.button5);
@@ -255,5 +271,6 @@
         private Button button6;
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem toolStripMenuItem1;
+        private Button button3;
     }
 }
