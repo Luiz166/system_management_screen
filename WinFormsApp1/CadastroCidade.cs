@@ -327,7 +327,8 @@ namespace WinFormsApp1
         private void button3_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Application.Run(new telaSelecao());
+            telaSelecao ss = new telaSelecao();
+            ss.Show();
         }
     }
 }
